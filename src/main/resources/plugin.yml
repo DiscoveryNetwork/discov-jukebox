@@ -1,0 +1,21 @@
+main: nl.parrotlync.discovjukebox.DiscovJukebox
+name: DiscovJukebox
+version: 1.0.0
+description: MCJukebox extension for the Discovery Network
+api-version: 1.12
+author: ParrotLync
+depend: [MCJukebox]
+commands:
+  fun:
+    description: Listen to music in the /fun channel
+    usage: /fun
+  music:
+    description: Auto-start music in shows for regions
+    usage: /music
+permissions:
+  discovjukebox.fun:
+    default: op
+    description: Permission to operate /fun
+  discovjukebox.music:
+    default: op
+    description: Access to the /music commands
