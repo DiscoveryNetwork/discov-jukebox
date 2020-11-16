@@ -4,7 +4,7 @@ version: 1.0.0
 description: MCJukebox extension for the Discovery Network
 api-version: 1.12
 author: ParrotLync
-depend: [MCJukebox]
+depend: [MCJukebox, WorldGuard]
 commands:
   fun:
     description: Listen to music in the /fun channel

@@ -55,6 +55,7 @@ public class ShowManager {
         } else {
             shows = new HashMap<>();
         }
+        enable();
     }
 
     public void save() {
@@ -62,5 +63,6 @@ public class ShowManager {
             DataUtil.saveObjectToPath(shows, path);
             DiscovJukebox.getInstance().getLogger().info("Saved " + shows.size() + " shows to file.");
         }
+        disable();
     }
 }

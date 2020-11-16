@@ -47,6 +47,7 @@ public class FunCommandExecutor implements TabExecutor {
                     }
                     ChatUtil.sendMessage(sender, "§7Connected players: §a" + players, true);
                 }
+                return true;
             }
 
             if (args[0].equalsIgnoreCase("stop")) {

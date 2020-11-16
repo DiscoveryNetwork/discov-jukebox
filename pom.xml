@@ -5,8 +5,11 @@
 
     <groupId>nl.parrotlync</groupId>
     <artifactId>DiscovJukebox</artifactId>
-    <version>1.0.0</version>
+    <version>1.12.2-v1.0${revision}</version>
 
+    <properties>
+        <revision>-SNAPSHOT</revision>
+    </properties>
     <build>
         <plugins>
             <plugin>
@@ -20,10 +23,17 @@
         </plugins>
     </build>
 
+    <distributionManagement>
+        <repository>
+            <id>nexus-releases</id>
+            <url>https://maven.ipictserver.nl/repository/maven-releases/</url>
+        </repository>
+    </distributionManagement>
+
     <repositories>
         <repository>
-            <id>spigotmc-repo</id>
-            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+            <id>nexus-releases</id>
+            <url>https://maven.ipictserver.nl/repository/maven-group/</url>
         </repository>
     </repositories>
 
@@ -41,7 +51,15 @@
             <version>2.6.7</version>
             <systemPath>${basedir}/lib/MCJukebox.jar</systemPath>
         </dependency>
+        <dependency>
+            <groupId>com.sk89q.worldguard</groupId>
+            <artifactId>worldguard-legacy</artifactId>
+            <version>6.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sk89q.worldedit</groupId>
+            <artifactId>worldedit-core</artifactId>
+            <version>6.1.4-SNAPSHOT</version>
+        </dependency>
     </dependencies>
-
-
 </project>
