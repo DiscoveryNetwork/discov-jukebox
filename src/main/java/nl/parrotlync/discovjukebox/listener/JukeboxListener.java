@@ -42,8 +42,10 @@ public class JukeboxListener implements Listener {
     @EventHandler
     public void onClientConnect(ClientConnectEvent event) {
         Player player = Bukkit.getPlayer(event.getUsername());
-        Media media = new Media(ResourceType.SOUND_EFFECT, DiscovJukebox.getInstance().getConfig().getString("startup-sound"));
-        JukeboxAPI.play(player, media);
+        if (player != null) {
+            Media media = new Media(ResourceType.SOUND_EFFECT, DiscovJukebox.getInstance().getConfig().getString("startup-sound"));
+            JukeboxAPI.play(player, media);
+        }
     }
 
     @EventHandler
