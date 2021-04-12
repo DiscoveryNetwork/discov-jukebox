@@ -2,6 +2,7 @@ main: nl.parrotlync.discovjukebox.DiscovJukebox
 name: ${artifactId}
 version: ${version}
 description: ${description}
+api-version: 1.15
 author: ParrotLync
 depend: [MCJukebox, WorldGuard]
 commands:
