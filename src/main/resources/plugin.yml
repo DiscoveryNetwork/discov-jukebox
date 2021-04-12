@@ -1,7 +1,7 @@
 main: nl.parrotlync.discovjukebox.DiscovJukebox
-name: DiscovJukebox
-version: 1.0.0
-description: MCJukebox extension for the Discovery Network
+name: ${artifactId}
+version: ${version}
+description: ${description}
 author: ParrotLync
 depend: [MCJukebox, WorldGuard]
 commands:

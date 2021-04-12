@@ -10,7 +10,7 @@ import java.util.HashMap;
 
 public class ShowManager {
     private HashMap<String, String> shows;
-    private String path = "plugins/DiscovJukebox/shows.data";
+    private final String path = "plugins/DiscovJukebox/shows.data";
     private boolean enabled = true;
 
     public boolean isEnabled() {

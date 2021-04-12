@@ -8,8 +8,9 @@ public class ChatUtil {
 
     public static void sendMessage(CommandSender sender, String msg, boolean withPrefix) {
         if (withPrefix) {
-            String prefix = ChatColor.translateAlternateColorCodes('&', DiscovJukebox.getInstance().getConfig().getString("prefix"));
-            msg = prefix + " " + msg;
+            String prefix = DiscovJukebox.getInstance().getConfig().getString("prefix");
+            assert prefix != null;
+            msg = ChatColor.translateAlternateColorCodes('&', prefix) + " " + msg;
         }
         sender.sendMessage(msg);
     }

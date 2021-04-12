@@ -25,10 +25,11 @@ import org.bukkit.event.player.PlayerQuitEvent;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Objects;
 import java.util.UUID;
 
 public class JukeboxListener implements Listener {
-    private HashMap<UUID, Date> cooldownMap = new HashMap<>();
+    private final HashMap<UUID, Date> cooldownMap = new HashMap<>();
 
     @EventHandler
     public void onPlayerQuit(PlayerQuitEvent event) {
@@ -50,7 +51,7 @@ public class JukeboxListener implements Listener {
 
     @EventHandler
     public void onSignChange(SignChangeEvent event) {
-        if (event.getLine(0).equalsIgnoreCase("[showsync]")) {
+        if (Objects.requireNonNull(event.getLine(0)).equalsIgnoreCase("[showsync]")) {
             if (event.getPlayer().hasPermission("discovjukebox.signs")) {
                 event.setLine(0, "[§9ShowSync§0]");
                 event.setLine(2, "");
@@ -81,10 +82,11 @@ public class JukeboxListener implements Listener {
     @EventHandler
     public void onPlayerInteract(PlayerInteractEvent event) {
         if (event.getAction() == Action.RIGHT_CLICK_BLOCK) {
-            if (event.getClickedBlock().getState() instanceof Sign) {
+            if (Objects.requireNonNull(event.getClickedBlock()).getState() instanceof Sign) {
                 Sign sign = (Sign) event.getClickedBlock().getState();
                 if (sign.getLine(0).equals("[§9ShowSync§0]")) {
                     WorldGuardPlugin plugin = (WorldGuardPlugin) DiscovJukebox.getInstance().getServer().getPluginManager().getPlugin("WorldGuard");
+                    assert plugin != null;
                     RegionManager manager = plugin.getRegionManager(sign.getWorld());
                     if (manager != null) {
                         ApplicableRegionSet set = manager.getApplicableRegions(sign.getLocation());

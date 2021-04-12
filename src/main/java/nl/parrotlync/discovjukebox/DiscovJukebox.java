@@ -7,10 +7,12 @@ import nl.parrotlync.discovjukebox.manager.PlayerManager;
 import nl.parrotlync.discovjukebox.manager.ShowManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.Objects;
+
 public class DiscovJukebox extends JavaPlugin {
     private static DiscovJukebox instance;
-    private PlayerManager playerManager;
-    private ShowManager showManager;
+    private final PlayerManager playerManager;
+    private final ShowManager showManager;
 
     public DiscovJukebox() {
         instance = this;
@@ -25,8 +27,8 @@ public class DiscovJukebox extends JavaPlugin {
         getConfig().options().copyDefaults(true);
         saveConfig();
         showManager.load();
-        this.getCommand("fun").setExecutor(new FunCommandExecutor());
-        this.getCommand("music").setExecutor(new MusicCommandExecutor());
+        Objects.requireNonNull(this.getCommand("fun")).setExecutor(new FunCommandExecutor());
+        Objects.requireNonNull(this.getCommand("music")).setExecutor(new MusicCommandExecutor());
         getServer().getPluginManager().registerEvents(new JukeboxListener(), this);
         getLogger().info("DiscovJukebox is now enabled!");
     }

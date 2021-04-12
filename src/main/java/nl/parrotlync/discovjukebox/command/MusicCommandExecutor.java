@@ -10,6 +10,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
 import org.bukkit.util.StringUtil;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,7 +19,7 @@ import java.util.List;
 public class MusicCommandExecutor implements TabExecutor {
 
     @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+    public boolean onCommand(CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
 
         if (sender.hasPermission("discovjukebox.music")) {
             if (args.length == 0) {
@@ -57,7 +58,7 @@ public class MusicCommandExecutor implements TabExecutor {
             if (args[0].equalsIgnoreCase("list")) {
                 HashMap<String, String> shows = DiscovJukebox.getInstance().getShowManager().getShows();
                 List<String> keys = new ArrayList<>(shows.keySet());
-                int numberOfPages = (int) Math.ceil((shows.size() / 5) + 1);
+                double numberOfPages = Math.ceil((double) (shows.size() / 5) + 1);
 
                 int page = 1;
                 if (args.length == 2) {
@@ -84,7 +85,7 @@ public class MusicCommandExecutor implements TabExecutor {
     }
 
     @Override
-    public List<String> onTabComplete(CommandSender sender, Command command, String label, String[] args) {
+    public List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, String[] args) {
         List<String> suggestions = new ArrayList<>();
 
         if (args.length == 1) {

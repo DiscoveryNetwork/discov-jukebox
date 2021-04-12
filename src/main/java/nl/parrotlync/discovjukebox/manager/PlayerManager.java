@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PlayerManager {
-    private List<Player> players = new ArrayList<>();
+    private final List<Player> players = new ArrayList<>();
 
     public void addPlayer(Player player) {
         if (!players.contains(player)) {
